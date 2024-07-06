@@ -23,15 +23,12 @@ function Demographics() {
   )
 }
 
-
 function Education() {
   const educationList = educations.map(education => 
-
     <li key={education.id} className='m-4 text-lg text-orange-800'>
       <b className='italic'> { education.school } </b> | { education.education_level } | GPA: { education.GPA }<br />
       { education.location} ({ education.graduation_date})
       <br />
-
       <ul className="list-disc pl-4 text-orange-800/60 hover:text-orange-800">
         <li>
           { education.awards }
@@ -40,7 +37,6 @@ function Education() {
           { education.relevant_coursework }
         </li>
       </ul>
-
     </li>
   )
 
@@ -56,7 +52,6 @@ function Education() {
 function Portfolio() {
   return (
     <div className='flex-1'>
-
       <Education />
 
     </div>
@@ -66,10 +61,9 @@ function Portfolio() {
 
 export default function Home() {
   return (
-    <section className='flex bg-gradient-to-l from-amber-300 to-orange-400'>
+    <section className='md:flex h-screen w-screen bg-gradient-to-l from-amber-300 to-orange-400'>
       <Demographics />
       <Portfolio />
-
     </section>
   );
 }
