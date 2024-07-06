@@ -33,16 +33,4 @@ export const educations = [{
         AP Computer Science Principles, AP Calculus AB, AP Calculus BC, Funds of Microsoft Windows, 
         Intro to Computer Info Systems, Intro to Computer Programming, Programming Concepts/Methodology I.
     `
-}, {
-    id: 3,
-    school: 'Eleanor Roosevent High School',
-    education_level: 'Phd. Computer Science',
-    GPA: '10.0',
-    location: 'Italy, California',
-    graduation_date: 'May 1995',
-    awards: 'Awards: too many to list.',
-    relevant_coursework: `
-        everything you can imagine of.
-    `
-
 }];
