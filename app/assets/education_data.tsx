@@ -34,7 +34,7 @@ export const educations = [{
         Intro to Computer Info Systems, Intro to Computer Programming, Programming Concepts/Methodology I.
     `
 }, {
-    id: 0,
+    id: 2,
     school: 'University of California, Irvine',
     education_level: 'BS in Computer Science',
     GPA: '3.609',
@@ -46,7 +46,7 @@ export const educations = [{
     Discrete Mathematics for CS.
     `
 }, {
-    id: 1,
+    id: 3,
     school: 'Henry J. Kaiser High School',
     education_level: 'High School Diploma',
     GPA: '4.71',
