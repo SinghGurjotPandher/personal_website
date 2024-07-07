@@ -7,6 +7,7 @@ import { useState } from 'react'
 import profileImage from './assets/profile_img_1.jpg'
 import { educations } from './assets/education_data'
 import { experiences } from './assets/experience_data'
+import { projects } from './assets/project_data'
 
 function ProfileImage() {
   return (
@@ -37,7 +38,7 @@ function SocialMediaButtons({GitHubLink, LinkedInLink}
 
 function Demographics() {
   return (
-    <div className='inline-block m-16 flex-2'>
+    <div className='flex-1 inline-block m-16'>
       <h1 className='text-5xl text-center font-bold m-5 text-white'> Gurjot Singh Pandher </h1>
       <ProfileImage />
       <SocialMediaButtons 
@@ -94,6 +95,33 @@ function Experience( {scrolling_format, title_format}
   )
 }
 
+function Projects( {scrolling_format, title_format} 
+  : {scrolling_format: string, title_format: string}) {
+  const projectList = projects.map(project => 
+    <li key={project.id} className='m-4 text-lg text-orange-800'>
+      <b className='italic'> { project.name } </b> | { project.skills_used }<br />
+      <Link className='bg-amber-600 hover:bg-amber-500 transition-all rounded p-0.5 m-1 text-amber-900' 
+        href={`${project.code_link}`}
+        target='_blank'> View Code </Link>
+      ({ project.timing})
+      <br />
+      <ul className="list-disc pl-4 text-orange-800/60 hover:text-orange-800 transition-all">
+        <li>
+          { project.description }
+        </li>
+      </ul>
+    </li>
+  )
+  return (
+    <div className={`m-10`}>
+      <h1 className={`${title_format}`}> EXPERIENCE </h1>
+      <ul className={`${scrolling_format}`}> { projectList } </ul>
+    </div>
+  )
+}
+
+
+
 function Portfolio() {
   const [currentDisplay, changeDisplay] = useState('Education')
 
@@ -115,7 +143,7 @@ function Portfolio() {
 
   function ButtonOptions() {
     return (
-      <div className='flex m-5 p-5 font-semibold'>
+      <div className='flex-wrap m-10 font-semibold'>
         <FlipContentButton name={'Education'}/>
         <FlipContentButton name={'Experience'}/>
         <FlipContentButton name={'Projects'}/>
@@ -126,16 +154,28 @@ function Portfolio() {
   }
   
   return (
-    <div className='flex-1'>
+    <div className='flex-0'>
       <ButtonOptions />
 
       { currentDisplay === 'Education' && <Education 
-        scrolling_format='overflow-y-auto h-[520px] scroll-smooth'
+        scrolling_format='overflow-y-auto h-[525px] scroll-smooth'
         title_format='text-3xl m-2 font-bold text-orange-800'/> }
 
       { currentDisplay === 'Experience' && <Experience 
-        scrolling_format='overflow-y-auto h-[520px] scroll-smooth'
+        scrolling_format='overflow-y-auto h-[525px] scroll-smooth'
         title_format='text-3xl m-2 font-bold text-orange-800'/> }
+
+      { currentDisplay == 'Projects' && <Projects 
+        scrolling_format='overflow-y-auto h-[525px] scroll-smooth'
+        title_format='text-3xl m-2 font-bold text-orange-800'/>}
+
+      { currentDisplay === 'Interests/Certifications' && <Experience 
+        scrolling_format='overflow-y-auto h-[525px] scroll-smooth'
+        title_format='text-3xl m-2 font-bold text-orange-800'/> }
+
+      { currentDisplay == 'Skills' && <Experience 
+        scrolling_format='overflow-y-auto h-[525px] scroll-smooth'
+        title_format='text-3xl m-2 font-bold text-orange-800'/>}
 
     </div>
   )

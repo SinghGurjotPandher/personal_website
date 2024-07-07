@@ -22,6 +22,15 @@ export const educations : Education[] = [{
     Discrete Mathematics for CS.
     `
 }, {
+   id: -1,
+   school: 'Stanford University',
+   education_level: "Master's Degree in Computer Science",
+   GPA: '4.0',
+   location: 'San Francisco, California',
+   graduation_date: 'May 2030',
+   awards: 'Awards: no awards',
+   relevant_coursework: 'Computer Programming and hardware'
+}, {
     id: 1,
     school: 'Henry J. Kaiser High School',
     education_level: 'High School Diploma',
@@ -57,4 +66,4 @@ export const educations : Education[] = [{
         AP Computer Science Principles, AP Calculus AB, AP Calculus BC, Funds of Microsoft Windows, 
         Intro to Computer Info Systems, Intro to Computer Programming, Programming Concepts/Methodology I.
     `
-}, ];
+}];
