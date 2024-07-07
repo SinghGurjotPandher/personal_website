@@ -17,13 +17,14 @@ function ProfileImage() {
   )
 }
 
-function SocialMediaButtons() {
+function SocialMediaButtons({GitHubLink, LinkedInLink} 
+  :{GitHubLink: string, LinkedInLink: string}) {
   return (
     <div className='flex justify-center text-2xl m-10'>
       <Link className='bg-amber-700 hover:bg-amber-600 transition-all rounded p-2 m-7 text-white' 
-        href='https://github.com/SinghGurjotPandher'> GitHub </Link>
+        href={`${GitHubLink}`}> GitHub </Link>
       <Link className='bg-amber-700 hover:bg-amber-600 transition-all rounded p-2 m-7 text-white' 
-        href='https://www.linkedin.com/in/gurjot-singh-pandher-28243526a/'> LinkedIn </Link>
+        href={`${LinkedInLink}`}> LinkedIn </Link>
     </div>
   );
 }
@@ -33,12 +34,14 @@ function Demographics() {
     <div className='inline-block m-16 flex-2'>
       <h1 className='text-5xl text-center font-bold m-5 text-white'> Gurjot Singh Pandher </h1>
       <ProfileImage />
-      <SocialMediaButtons />
+      <SocialMediaButtons 
+        GitHubLink='https://github.com/SinghGurjotPandher'
+        LinkedInLink='https://www.linkedin.com/in/gurjot-singh-pandher-28243526a/'/>
     </div>
   )
 }
 
-function Education() {
+function Education( {uniform_styling} : {uniform_styling: string}) {
   const educationList = educations.map(education => 
     <li key={education.id} className='m-4 text-lg text-orange-800'>
       <b className='italic'> { education.school } </b> | { education.education_level } | GPA: { education.GPA }<br />
@@ -56,7 +59,7 @@ function Education() {
   )
 
   return (
-    <div className='m-10'>
+    <div className={`${uniform_styling}`}>
       <h1 className='text-3xl m-2 font-bold text-orange-800'> EDUCATION </h1>
       <ul> {educationList} </ul>
     </div>
@@ -67,7 +70,7 @@ function Education() {
 function Portfolio() {
   return (
     <div className='flex-1'>
-      <Education />
+      <Education uniform_styling='m-10 overflow-y-auto h-[700px] scroll-smooth'/>
 
     </div>
   )
