@@ -5,9 +5,11 @@ import Link from "next/link"
 import { useState } from 'react'
 
 import profileImage from './assets/profile_img_1.jpg'
+
 import { educations } from './assets/education_data'
 import { experiences } from './assets/experience_data'
 import { projects } from './assets/project_data'
+import { skills } from './assets/skills_data'
 
 function ProfileImage() {
   return (
@@ -120,7 +122,36 @@ function Projects( {scrolling_format, title_format}
   )
 }
 
+function Interests_Certifications( {scrolling_format, title_format} 
+  : {scrolling_format: string, title_format: string}) {
+  const skillsList = skills.map(skill => 
+    <button className='bg-amber-600 hover:bg-amber-500 transition-all rounded-full p-5 m-4 text-amber-900 outline outline-double shadow-xl shadow-amber-500'>
+      Under development --- to be updated...
+    </button>
+  )
+  return (
+    <div className={`m-10`}>
+      <h1 className={`${title_format}`}> Interests/Certifications </h1>
+      <div className={`${scrolling_format}`}> { skillsList } </div>
+    </div>
+  )
+}
 
+
+function Skills( {scrolling_format, title_format} 
+  : {scrolling_format: string, title_format: string}) {
+  const skillsList = skills.map(skill => 
+    <button className='bg-amber-600 hover:bg-amber-500 transition-all rounded-full p-5 m-4 text-amber-900 outline outline-double shadow-xl shadow-amber-500'>
+      { skill }
+    </button>
+  )
+  return (
+    <div className={`m-10`}>
+      <h1 className={`${title_format}`}> SKILLS </h1>
+      <div className={`${scrolling_format}`}> { skillsList } </div>
+    </div>
+  )
+}
 
 function Portfolio() {
   const [currentDisplay, changeDisplay] = useState('Education')
@@ -129,7 +160,7 @@ function Portfolio() {
     return (
       <button
         className= {`
-          transition-all rounded px-7 py-5 m-1 text-white shadow-xl
+          transition-all rounded px-7 py-5 m-1 text-white shadow-xl shadow-amber-500
           ${currentDisplay == name ? 
               'bg-amber-600 hover:bg-amber-500 border-2 border-rose-800 border-dotted hover:border-solid' : 
               'bg-orange-700 hover:bg-orange-600'}
@@ -169,11 +200,11 @@ function Portfolio() {
         scrolling_format='overflow-y-auto h-[525px] scroll-smooth'
         title_format='text-3xl m-2 font-bold text-orange-800'/>}
 
-      { currentDisplay === 'Interests/Certifications' && <Experience 
+      { currentDisplay === 'Interests/Certifications' && <Interests_Certifications 
         scrolling_format='overflow-y-auto h-[525px] scroll-smooth'
         title_format='text-3xl m-2 font-bold text-orange-800'/> }
 
-      { currentDisplay == 'Skills' && <Experience 
+      { currentDisplay == 'Skills' && <Skills 
         scrolling_format='overflow-y-auto h-[525px] scroll-smooth'
         title_format='text-3xl m-2 font-bold text-orange-800'/>}
 
