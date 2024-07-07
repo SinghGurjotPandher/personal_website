@@ -1,17 +1,31 @@
-import Image from "next/image"
+import Image from 'next/image'
+import Link from "next/link";
 
 import profileImage from './assets/profile_img_1.jpg'
 import { educations } from './assets/education_data'
 
 function ProfileImage() {
   return (
-    <Image
-      className='m-6 rounded-tl-full rounded-b-full'
-      src={profileImage}
-      alt='Gurjot Singh Pandher'
-      width={400}
-    />
+    <div className='flex justify-center mt-10'>
+      <Image
+        className=' rounded-tl-full rounded-b-full'
+        src={profileImage}
+        alt='Gurjot Singh Pandher'
+        width={300}
+      />
+    </div>
   )
+}
+
+function SocialMediaButtons() {
+  return (
+    <div className='flex justify-center text-2xl m-10'>
+      <Link className='bg-amber-700 hover:bg-amber-600 transition-all rounded p-2 m-7 text-white' 
+        href='https://github.com/SinghGurjotPandher'> GitHub </Link>
+      <Link className='bg-amber-700 hover:bg-amber-600 transition-all rounded p-2 m-7 text-white' 
+        href='https://www.linkedin.com/in/gurjot-singh-pandher-28243526a/'> LinkedIn </Link>
+    </div>
+  );
 }
 
 function Demographics() {
@@ -19,6 +33,7 @@ function Demographics() {
     <div className='inline-block m-16 flex-2'>
       <h1 className='text-5xl text-center font-bold m-5 text-white'> Gurjot Singh Pandher </h1>
       <ProfileImage />
+      <SocialMediaButtons />
     </div>
   )
 }
@@ -29,7 +44,7 @@ function Education() {
       <b className='italic'> { education.school } </b> | { education.education_level } | GPA: { education.GPA }<br />
       { education.location} ({ education.graduation_date})
       <br />
-      <ul className="list-disc pl-4 text-orange-800/60 hover:text-orange-800">
+      <ul className="list-disc pl-4 text-orange-800/60 hover:text-orange-800 transition-all">
         <li>
           { education.awards }
         </li>
