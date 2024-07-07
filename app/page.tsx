@@ -116,7 +116,7 @@ function Projects( {scrolling_format, title_format}
   )
   return (
     <div className={`m-10`}>
-      <h1 className={`${title_format}`}> EXPERIENCE </h1>
+      <h1 className={`${title_format}`}> PROJECTS </h1>
       <ul className={`${scrolling_format}`}> { projectList } </ul>
     </div>
   )
