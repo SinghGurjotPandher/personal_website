@@ -1,9 +1,12 @@
 'use client'
+
 import Image from 'next/image'
-import Link from "next/link";
+import Link from "next/link"
+import { useState } from 'react'
 
 import profileImage from './assets/profile_img_1.jpg'
 import { educations } from './assets/education_data'
+import { experiences } from './assets/experience_data'
 
 function ProfileImage() {
   return (
@@ -23,9 +26,11 @@ function SocialMediaButtons({GitHubLink, LinkedInLink}
   return (
     <div className='flex justify-center text-2xl m-10'>
       <Link className='bg-orange-700 hover:bg-orange-600 transition-all rounded p-2 m-7 text-white' 
-        href={`${GitHubLink}`}> GitHub </Link>
+        href={`${GitHubLink}`}
+        target='_blank'> GitHub </Link>
       <Link className='bg-orange-700 hover:bg-orange-600 transition-all rounded p-2 m-7 text-white' 
-        href={`${LinkedInLink}`}> LinkedIn </Link>
+        href={`${LinkedInLink}`}
+        target='_blank'> LinkedIn </Link>
     </div>
   );
 }
@@ -62,51 +67,76 @@ function Education( {scrolling_format, title_format}
   return (
     <div className={`m-10`}>
       <h1 className={`${title_format}`}> EDUCATION </h1>
-      <ul className={`${scrolling_format}`}> {educationList } </ul>
+      <ul className={`${scrolling_format}`}> { educationList } </ul>
     </div>
   )
 }
 
-function ButtonOptions() {
-
-  function clicked() {
-    alert(`clicked`)
-  }
-  
+function Experience( {scrolling_format, title_format} 
+  : {scrolling_format: string, title_format: string}) {
+  const experienceList = experiences.map(experience => 
+    <li key={experience.id} className='m-4 text-lg text-orange-800'>
+      <b className='italic'> { experience.job_title } </b> | { experience.organization_name }<br />
+      { experience.location} ({ experience.timing})
+      <br />
+      <ul className="list-disc pl-4 text-orange-800/60 hover:text-orange-800 transition-all">
+        <li>
+          { experience.description }
+        </li>
+      </ul>
+    </li>
+  )
   return (
-    <div className='flex m-5 p-5 font-semibold'>
-      <button 
-        className='bg-amber-700 hover:bg-amber-600 transition-all rounded px-7 py-5 m-1 text-white'
-        onClick={clicked}
-      >
-        Education
-      </button>
-      <button className='bg-amber-700 hover:bg-amber-600 transition-all rounded px-7 py-5 m-1 text-white'>
-        Experience
-      </button>
-      <button className='bg-amber-700 hover:bg-amber-600 transition-all rounded px-7 py-5 m-1 text-white'>
-        Projects
-      </button>
-      <button className='bg-amber-700 hover:bg-amber-600 transition-all rounded px-7 py-5 m-1 text-white'>
-        Interests/Certifications
-      </button>
-      <button className='bg-amber-700 hover:bg-amber-600 transition-all rounded px-7 py-5 m-1 text-white'>
-        Skills
-      </button>
+    <div className={`m-10`}>
+      <h1 className={`${title_format}`}> EXPERIENCE </h1>
+      <ul className={`${scrolling_format}`}> { experienceList } </ul>
     </div>
   )
 }
 
 function Portfolio() {
+  const [currentDisplay, changeDisplay] = useState('Education')
+
+  function FlipContentButton({name} : {name: string}) {
+    return (
+      <button
+        className= {`
+          transition-all rounded px-7 py-5 m-1 text-white shadow-xl
+          ${currentDisplay == name ? 
+              'bg-amber-600 hover:bg-amber-500 border-2 border-rose-800 border-dotted hover:border-solid' : 
+              'bg-orange-700 hover:bg-orange-600'}
+        `}
+        onMouseEnter ={ () => changeDisplay(name) }
+      >
+        { name }
+      </button>
+    )
+  }
+
+  function ButtonOptions() {
+    return (
+      <div className='flex m-5 p-5 font-semibold'>
+        <FlipContentButton name={'Education'}/>
+        <FlipContentButton name={'Experience'}/>
+        <FlipContentButton name={'Projects'}/>
+        <FlipContentButton name={'Interests/Certifications'}/>
+        <FlipContentButton name={'Skills'}/>
+      </div>
+    )
+  }
+  
   return (
     <div className='flex-1'>
       <ButtonOptions />
-      <Education 
-        scrolling_format='overflow-y-auto h-[520px] scroll-smooth'
-        title_format='text-3xl m-2 font-bold text-orange-800'/>
 
-      
-      
+      { currentDisplay === 'Education' && <Education 
+        scrolling_format='overflow-y-auto h-[520px] scroll-smooth'
+        title_format='text-3xl m-2 font-bold text-orange-800'/> }
+
+      { currentDisplay === 'Experience' && <Experience 
+        scrolling_format='overflow-y-auto h-[520px] scroll-smooth'
+        title_format='text-3xl m-2 font-bold text-orange-800'/> }
+
     </div>
   )
 }

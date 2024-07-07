@@ -4,12 +4,12 @@ type Education = {
     education_level: string,
     GPA: string,
     location: string, 
-    graduation_data: string,
+    graduation_date: string,
     awards: string,
     relevant_coursework: string
 };
 
-export const educations = [{
+export const educations : Education[] = [{
     id: 0,
     school: 'University of California, Irvine',
     education_level: 'BS in Computer Science',
@@ -57,4 +57,4 @@ export const educations = [{
         AP Computer Science Principles, AP Calculus AB, AP Calculus BC, Funds of Microsoft Windows, 
         Intro to Computer Info Systems, Intro to Computer Programming, Programming Concepts/Methodology I.
     `
-}];
+}, ];
