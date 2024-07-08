@@ -47,8 +47,8 @@ function SocialMediaButtons({GitHubLink, LinkedInLink}
 
 function Demographics() {
   return (
-    <div className='flex-1 inline-block lg:m-30 md:m-10 '>
-      <h1 className='flex justify-center text-5xl text-center font-bold text-white'> Gurjot Singh Pandher </h1>
+    <div className='flex-1 inline-block lg:m-30 md:m-10'>
+      <h1 className='flex justify-center text-5xl text-center font-bold text-white m-5'> Gurjot Singh Pandher </h1>
       <ProfileImage />
       <SocialMediaButtons 
         GitHubLink='https://github.com/SinghGurjotPandher'
