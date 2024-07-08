@@ -20,7 +20,7 @@ import { languages } from './assets/interests_certifications'
 
 function ProfileImage() {
   return (
-    <div className='flex justify-center mt-10'>
+    <div className='flex justify-center lg:mt-10'>
       <Image
         className=' rounded-tl-full rounded-b-full'
         src={profileImage}
@@ -34,7 +34,7 @@ function ProfileImage() {
 function SocialMediaButtons({GitHubLink, LinkedInLink} 
   :{GitHubLink: string, LinkedInLink: string}) {
   return (
-    <div className='flex justify-center text-2xl m-10'>
+    <div className='flex justify-center text-2xl lg:m-20 '>
       <Link className='bg-orange-700 hover:bg-orange-600 transition-all rounded p-2 m-7 text-white' 
         href={`${GitHubLink}`}
         target='_blank'> GitHub </Link>
@@ -47,8 +47,8 @@ function SocialMediaButtons({GitHubLink, LinkedInLink}
 
 function Demographics() {
   return (
-    <div className='flex-1 inline-block m-16'>
-      <h1 className='text-5xl text-center font-bold m-5 text-white'> Gurjot Singh Pandher </h1>
+    <div className='flex-1 inline-block lg:m-30 md:m-10 '>
+      <h1 className='flex justify-center text-5xl text-center font-bold text-white'> Gurjot Singh Pandher </h1>
       <ProfileImage />
       <SocialMediaButtons 
         GitHubLink='https://github.com/SinghGurjotPandher'
@@ -199,7 +199,7 @@ function Awards_Interests( {scrolling_format, title_format, medium_title_format}
       </div>
     )
   }
-  
+
   function Languages () {
     return (
       <div>
@@ -308,7 +308,7 @@ function Portfolio() {
 
 export default function Home() {
   return (
-    <section className='md:flex h-screen w-screen bg-gradient-to-l from-amber-300 to-orange-400'>
+    <section className='md:flex h-screen w-screen'>
       <Demographics />
       <Portfolio />
     </section>
