@@ -282,24 +282,24 @@ function Portfolio() {
       <ButtonOptions />
 
       { currentDisplay === 'Education' && <Education 
-        scrolling_format='overflow-y-auto h-[525px] scroll-smooth'
+        scrolling_format='md:overflow-y-auto h-[525px] scroll-smooth'
         title_format='text-3xl m-2 font-bold text-orange-800'/> }
 
       { currentDisplay === 'Experience' && <Experience 
-        scrolling_format='overflow-y-auto h-[525px] scroll-smooth'
+        scrolling_format='md:overflow-y-auto h-[525px] scroll-smooth'
         title_format='text-3xl m-2 font-bold text-orange-800'/> }
 
       { currentDisplay == 'Projects' && <Projects 
-        scrolling_format='overflow-y-auto h-[525px] scroll-smooth'
+        scrolling_format='md:overflow-y-auto h-[525px] scroll-smooth'
         title_format='text-3xl m-2 font-bold text-orange-800'/>}
 
       { currentDisplay === 'Awards/Interests' && <Awards_Interests 
-        scrolling_format='overflow-y-auto h-[525px] scroll-smooth'
+        scrolling_format='md:overflow-y-auto h-[525px] scroll-smooth'
         title_format='text-3xl m-2 font-bold text-orange-800'
         medium_title_format='text-2xl m-2 mt-5 font-bold text-orange-800'/> }
 
       { currentDisplay == 'Skills' && <Skills 
-        scrolling_format='overflow-y-auto h-[525px] scroll-smooth'
+        scrolling_format='md:overflow-y-auto h-[525px] scroll-smooth'
         title_format='text-3xl m-2 font-bold text-orange-800'/>}
 
     </div>
