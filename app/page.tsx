@@ -1,5 +1,4 @@
 'use client'
-
 import Image from 'next/image'
 import Link from "next/link"
 import { useState } from 'react'
@@ -10,6 +9,14 @@ import { educations } from './assets/education_data'
 import { experiences } from './assets/experience_data'
 import { projects } from './assets/project_data'
 import { skills } from './assets/skills_data'
+
+import { certifications } from './assets/interests_certifications'
+import { organizations } from './assets/interests_certifications'
+import { hackathons } from './assets/interests_certifications'
+import { honors_awards } from './assets/interests_certifications'
+import { languages } from './assets/interests_certifications'
+
+
 
 function ProfileImage() {
   return (
@@ -122,17 +129,103 @@ function Projects( {scrolling_format, title_format}
   )
 }
 
-function Interests_Certifications( {scrolling_format, title_format} 
-  : {scrolling_format: string, title_format: string}) {
-  const skillsList = skills.map(skill => 
-    <button className='bg-amber-600 hover:bg-amber-500 transition-all rounded-full p-5 m-4 text-amber-900 outline outline-double shadow-xl shadow-amber-500'>
-      Under development --- to be updated...
-    </button>
-  )
+
+function Awards_Interests( {scrolling_format, title_format, medium_title_format} 
+  : {scrolling_format: string, title_format: string, medium_title_format: string}) {
+
+  function Honors_Awards () {
+    return (
+      <div>
+        <h1 className={`${medium_title_format}`}> Awards </h1>
+        <ul>
+          {honors_awards.map(honor_award => (
+            <li key={honor_award.id} className='m-4 text-lg text-orange-800'>
+              <b> {honor_award.name} </b> | {honor_award.organization} <br />
+              {honor_award.timing} <br />
+              <ul className="list-disc pl-4 text-orange-800/60 hover:text-orange-800 transition-all">
+                <li> {honor_award.description}</li>
+              </ul>
+            </li>
+          ))}
+        </ul>
+      </div>
+    )
+  }
+
+  function Certifications () {
+    return (
+      <div>
+        <h1 className={`${medium_title_format}`}> Certifications </h1>
+        <ul>
+          {certifications.map(certification => (
+            <li key={certification.id} className='m-4 text-lg text-orange-800'>
+              <b> {certification.title} </b> | {certification.organization} | {certification.timing}<br />
+              <div className="list-disc pl-4 text-orange-800/60 hover:text-orange-800 transition-all">
+                Skills: {certification.skills}
+              </div>
+            </li>
+          ))}
+        </ul>
+      </div>
+    )
+  }
+
+  function Hackathons () {
+    return (
+      <div>
+        <h1 className={`${medium_title_format}`}> Hackathons </h1>
+        <ul className='list-disc pl-4'>
+          {hackathons.map(hackathon => (
+            <li key={hackathon.id} className='m-4 text-lg text-orange-800'>
+              {hackathon.name} | {hackathon.organization}
+            </li>
+          ))}
+        </ul>
+      </div>
+    )
+  }
+
+  function Organizations () {
+    return (
+      <div>
+        <h1 className={`${medium_title_format}`}> Organizations </h1>
+        <ul className='list-disc pl-4'>
+          {organizations.map(organization => (
+            <li key={organization.id} className='m-4 text-lg text-orange-800'>
+              {organization.organization}
+            </li>
+          ))}
+        </ul>
+      </div>
+    )
+  }
+  
+  function Languages () {
+    return (
+      <div>
+        <h1 className={`${medium_title_format}`}> Languages </h1>
+        <ul className='list-disc pl-4'>
+          {languages.map(language => (
+            <li key={language.id} className='m-4 text-lg text-orange-800'>
+              {language.title} | {language.proficiency}
+            </li>
+          ))}
+        </ul>
+      </div>
+    )
+  }
+
   return (
     <div className={`m-10`}>
-      <h1 className={`${title_format}`}> Interests/Certifications </h1>
-      <div className={`${scrolling_format}`}> { skillsList } </div>
+      <h1 className={`${title_format}`}> AWARDS/INTERESTS </h1>
+      <div className={`${scrolling_format}`}>
+        < Honors_Awards />
+        < Certifications  />
+        < Hackathons />
+        < Organizations />
+        < Languages />
+      </div>
+
     </div>
   )
 }
@@ -178,7 +271,7 @@ function Portfolio() {
         <FlipContentButton name={'Education'}/>
         <FlipContentButton name={'Experience'}/>
         <FlipContentButton name={'Projects'}/>
-        <FlipContentButton name={'Interests/Certifications'}/>
+        <FlipContentButton name={'Awards/Interests'}/>
         <FlipContentButton name={'Skills'}/>
       </div>
     )
@@ -200,9 +293,10 @@ function Portfolio() {
         scrolling_format='overflow-y-auto h-[525px] scroll-smooth'
         title_format='text-3xl m-2 font-bold text-orange-800'/>}
 
-      { currentDisplay === 'Interests/Certifications' && <Interests_Certifications 
+      { currentDisplay === 'Awards/Interests' && <Awards_Interests 
         scrolling_format='overflow-y-auto h-[525px] scroll-smooth'
-        title_format='text-3xl m-2 font-bold text-orange-800'/> }
+        title_format='text-3xl m-2 font-bold text-orange-800'
+        medium_title_format='text-2xl m-2 mt-5 font-bold text-orange-800'/> }
 
       { currentDisplay == 'Skills' && <Skills 
         scrolling_format='overflow-y-auto h-[525px] scroll-smooth'
