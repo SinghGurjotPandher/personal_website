@@ -8,6 +8,15 @@ type Project = {
 };
 
 export const projects : Project[] = [{
+    id: -1,
+    name: 'Personal Website',
+    skills_used: 'React, TypeScript, Tailwind CSS, Next.js, Vercel, Git, Vercel',
+    description: `Personal website that provides details of my education, experiences, awards, certifications,
+    hackathons, organizations, languages, and skills.`,
+    code_link: 'https://github.com/SinghGurjotPandher/personal_website/tree/main',
+    timing: 'Jul 2024'
+},
+    {
     id: 0,
     name: 'Classroom Site',
     skills_used: 'Python, Django, HTML, CSS, JavaScript',
