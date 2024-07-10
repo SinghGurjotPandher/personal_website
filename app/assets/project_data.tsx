@@ -8,6 +8,15 @@ type Project = {
 };
 
 export const projects : Project[] = [{
+    id: -2,
+    name: 'Multi-Player Chess Game',
+    skills_used: 'C++, SFML, TCP Sockets, Server/Client Programming',
+    description: `•	Designed a chess game using C++, SFML that is played using server-client communication.
+     The server accepts connection from multiple players and pairs them. The server transfers chess piece 
+     moves amongst clients via TCP sockets, which updates their own chess board (represented by bitboards).`,
+    code_link: 'Not Available Yet',
+    timing: 'Jun 2024'  
+},{
     id: -1,
     name: 'Personal Website',
     skills_used: 'React, TypeScript, Tailwind CSS, Next.js, Vercel, Git',
