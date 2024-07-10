@@ -9,6 +9,14 @@ type Project = {
 
 export const projects : Project[] = [{
     id: -2,
+    name: 'Personal Website',
+    skills_used: 'React, TypeScript, Tailwind CSS, Next.js, Vercel, Git',
+    description: `Personal website that provides details of my education, experiences, awards, certifications,
+    hackathons, organizations, languages, and skills.`,
+    code_link: 'https://github.com/SinghGurjotPandher/personal_website/tree/main',
+    timing: 'Jul 2024'
+}, {
+    id: -1,
     name: 'Multi-Player Chess Game',
     skills_used: 'C++, SFML, TCP Sockets, Server/Client Programming',
     description: `•	Designed a chess game using C++, SFML that is played using server-client communication.
@@ -16,14 +24,6 @@ export const projects : Project[] = [{
      moves amongst clients via TCP sockets, which updates their own chess board (represented by bitboards).`,
     code_link: 'Not Available Yet',
     timing: 'Jun 2024'  
-},{
-    id: -1,
-    name: 'Personal Website',
-    skills_used: 'React, TypeScript, Tailwind CSS, Next.js, Vercel, Git',
-    description: `Personal website that provides details of my education, experiences, awards, certifications,
-    hackathons, organizations, languages, and skills.`,
-    code_link: 'https://github.com/SinghGurjotPandher/personal_website/tree/main',
-    timing: 'Jul 2024'
 },
     {
     id: 0,
