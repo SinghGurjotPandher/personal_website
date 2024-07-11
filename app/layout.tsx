@@ -19,6 +19,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className='bg-gradient-to-l from-amber-300 to-orange-400'>{children}</body>
+      <Analytics />
+      <SpeedInsights />
     </html>
   );
 }
